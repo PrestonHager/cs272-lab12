@@ -1,0 +1,102 @@
+Initial tree:
+
+Insert 12, inserted=true, after adding 12:
+12
+
+Insert 6, inserted=true, after adding 6:
+12
+    6
+
+Insert 19, inserted=true, after adding 19:
+    19
+12
+    6
+
+Insert 4, inserted=true, after adding 4:
+    19
+12
+    6
+        4
+
+Insert 8, inserted=true, after adding 8:
+    19
+12
+        8
+    6
+        4
+
+Insert 16, inserted=true, after adding 16:
+    19
+        16
+12
+        8
+    6
+        4
+
+Insert 8 (second), inserted=false, after adding 8:
+    19
+        16
+12
+        8
+    6
+        4
+
+Insert 5, inserted=true, after adding 5:
+    19
+        16
+12
+        8
+    6
+            5
+        4
+
+Insert 9, inserted=true, after adding 9:
+    19
+        16
+12
+            9
+        8
+    6
+            5
+        4
+
+Insert 20, inserted=true, after adding 20:
+        20
+    19
+        16
+12
+            9
+        8
+    6
+            5
+        4
+Inorder traversal results:
+        20
+    19
+        16
+12
+            9
+        8
+    6
+            5
+        4
+
+
+searchRecursion 6, node=(4)6(8)
+searchRecursion 22, node=null
+searchRecursion 8, node=(null)8(9)
+
+searchNonRecursion 6, node=(4)6(8)
+searchNonRecursion 22, node=null
+searchNonRecursion 8, node=(null)8(9)
+
+Remove 30, rc=false
+        20
+    19
+        16
+12
+            9
+        8
+    6
+            5
+        4

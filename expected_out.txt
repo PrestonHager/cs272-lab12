@@ -1,0 +1,208 @@
+Initial tree:
+
+Insert 12, inserted=true, after adding 12:
+12
+
+Insert 6, inserted=true, after adding 6:
+12
+    6
+
+Insert 19, inserted=true, after adding 19:
+    19
+12
+    6
+
+Insert 4, inserted=true, after adding 4:
+    19
+12
+    6
+        4
+
+Insert 8, inserted=true, after adding 8:
+    19
+12
+        8
+    6
+        4
+
+Insert 16, inserted=true, after adding 16:
+    19
+        16
+12
+        8
+    6
+        4
+
+Insert 8 (second), inserted=false, after adding 8:
+    19
+        16
+12
+        8
+    6
+        4
+
+Insert 5, inserted=true, after adding 5:
+    19
+        16
+12
+        8
+    6
+            5
+        4
+
+Insert 9, inserted=true, after adding 9:
+    19
+        16
+12
+            9
+        8
+    6
+            5
+        4
+
+Insert 20, inserted=true, after adding 20:
+        20
+    19
+        16
+12
+            9
+        8
+    6
+            5
+        4
+Inorder traversal results:
+        20
+    19
+        16
+12
+            9
+        8
+    6
+            5
+        4
+
+
+searchRecursion 6, node=(4)6(8)
+searchRecursion 22, node=null
+searchRecursion 8, node=(null)8(9)
+
+searchNonRecursion 6, node=(4)6(8)
+searchNonRecursion 22, node=null
+searchNonRecursion 8, node=(null)8(9)
+
+Remove 30, rc=false
+        20
+    19
+        16
+12
+            9
+        8
+    6
+            5
+        4
+
+Remove 20, rc=true
+    19
+        16
+12
+            9
+        8
+    6
+            5
+        4
+
+Remove 4, rc=true
+    19
+        16
+12
+            9
+        8
+    6
+        5
+
+Remove 19, rc=true
+    16
+12
+            9
+        8
+    6
+        5
+
+Remove 6, rc=true
+    16
+12
+            9
+        8
+    5
+
+Remove 12, rc=true
+    16
+9
+        8
+    5
+
+Remove 8, rc=true
+    16
+9
+    5
+
+Remove 5, rc=true
+    16
+9
+
+Remove 8, rc=false
+    16
+9
+
+Remove 16, rc=true
+9
+sum=9
+
+Adding a series of numbers:
+        50
+            40
+                35
+    30
+                28
+            25
+                24
+        20
+                    12
+                11
+            10
+9
+    5
+sum=299
+sum=299
+
+
+
+Remove 20 (removeNode case 4):
+        50
+            40
+                35
+    30
+                28
+            25
+                24
+        12
+                11
+            10
+9
+    5
+sum=279
+Inorder traversal results: 
+        50
+            40
+                35
+    30
+                28
+            25
+                24
+        12
+                11
+            10
+9
+    5
+
+sum=279
