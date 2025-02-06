@@ -117,7 +117,7 @@ public class BST {
   public boolean remove (int e)
   */
   /**
-   * Remove a node from the tree given the data value
+   * Remove a node from the tree given the data value via recursion
    *
    * @param e The value to remove
    *
@@ -131,34 +131,34 @@ public class BST {
     }
     // Base case: value is this root node
     if (root.getData() == e) {
-      System.out.println("Removing " + e);
-      System.out.println("Root: " + root);
       // Case 1: no children
-      if (root.getLeft() == null && root.getRight() == null) {
+      if (root.getLeft().root == null && root.getRight().root == null) {
         root = null;
         return true;
       }
       // actually remove the value by moving either the left/right node up to
       // the current root
       // Case 2: one child
-      if (root.getLeft() == null) {
+      if (root.getLeft().root == null) {
         root = root.getRight().root;
         return true;
       }
-      if (root.getRight() == null) {
+      if (root.getRight().root == null) {
         root = root.getLeft().root;
         return true;
       }
       // Case 3: two children
-      // Find the minimum value in the right subtree
-      BSTNode min = root.getRight().root;
-      while (min.getLeft().root.getLeft() != null) {
-        min = min.getLeft().root;
+      // Move the right child up to the current root and then move all
+      // subchildren up to the root node
+      // Create a dummy tree to replace the current root with
+      BST dummy = new BST();
+      BST current = this;
+      while (current.root.getLeft().root != null) {
+        dummy.root.setData(current.root.getLeft().root.getData());
+        current = current.root.getLeft();
       }
-      // Replace the current root with the minimum value
-      root.setData(min.getData());
-      // Remove the minimum value from the right subtree
-      min = null;
+      // Final node is removed
+      current.root = null;
       return true;
     }
     // Recursive cases: value is > or < current data then pick left/right
@@ -328,7 +328,6 @@ public class BST {
     tree.inOrderPrt();
 		rc = tree.insert(20);
     System.out.println("\nInsert 20, inserted="+rc+", after adding 20:");
-    tree.inOrderPrt();
 		
 		System.out.println("Inorder traversal results:");
 		tree.inOrderPrt(); 
